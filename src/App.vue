@@ -1,11 +1,9 @@
 <template>
-	<h1>hello ntt data</h1>
+	<Header />
 </template>
 
-<script setup></script>
+<script setup>
+import Header from "@/components/Header.vue";
+</script>
 
-<style scoped lang="postcss">
-h1 {
-  @apply text-blue-500;
-}
-</style>
+<style scoped lang="postcss"></style>
