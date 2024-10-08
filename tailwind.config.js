@@ -2,7 +2,11 @@
 export default {
 	content: ["./index.html", "./src/**/*.{vue,css,js,ts,jsx,tsx}"],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				sans: ["Poppins", "sans-serif"],
+			},
+		},
 	},
 	plugins: [],
 };
