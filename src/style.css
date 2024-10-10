@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.search-outline {
+		@apply outline-none outline-primary-gray outline-offset-0;
+	}
+}
+
 body {
-  @apply min-h-full bg-body text-white;
+	@apply min-h-full bg-body text-white;
 }

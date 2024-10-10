@@ -1,8 +1,8 @@
 <template>
-  	<header>
-    <img src="@/assets/movie-search-icon.svg" alt="">
-    <h1>Movie Search</h1>
-  </header>
+	<header>
+		<img src="@/assets/movie-search-icon.svg" alt="" />
+		<h1>Movie Search</h1>
+	</header>
 </template>
 
 <script setup></script>

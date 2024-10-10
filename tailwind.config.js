@@ -7,6 +7,9 @@ export default {
 				body: "#521919",
 				header: "#2d0e0e",
 			},
+			colors: {
+				"primary-gray": "#111111",
+			},
 			fontFamily: {
 				sans: ["Poppins", "sans-serif"],
 			},
