@@ -1,5 +1,5 @@
 <template>
-	<form>
+	<form @submit.prevent="$emit('submitMovie', movieTitle)">
 		<label for="movie-input">Movie Title:</label>
 		<div class="input-wrapper">
 			<input type="text" id="movie-input" v-model="movieTitle" />
