@@ -26,7 +26,7 @@ form {
 		@apply flex h-10 w-full drop-shadow-md;
 
 		input {
-			@apply h-full w-full p-2 rounded-l-md text-primary-gray focus-visible:search-outline;
+			@apply h-full w-full p-2 rounded-l-md text-primary-gray focus-visible:search-outline text-lg;
 
 			&:focus-visible + button {
 				@apply search-outline;
