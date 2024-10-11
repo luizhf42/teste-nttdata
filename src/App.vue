@@ -4,6 +4,7 @@
 		<p>Search for any movie easily!</p>
 		<MovieForm @submit-movie="getMovie" />
 		<p v-if="loading">loading</p>
+		<Movie v-if="movieData" :movieData="movieData" />
 	</main>
 </template>
 
@@ -11,13 +12,15 @@
 import { ref } from "vue";
 import Header from "@/components/Header.vue";
 import MovieForm from "@/components/MovieForm.vue";
+import Movie from "@/components/Movie.vue";
 
+const loading = ref(false);
 const params = new URLSearchParams({
 	apikey: import.meta.env.VITE_API_KEY,
 	type: "movie",
 });
 
-const loading = ref(false);
+const movieData = ref();
 
 const getMovie = async (movieTitle) => {
 	params.set("t", movieTitle);
@@ -28,6 +31,7 @@ const getMovie = async (movieTitle) => {
 		);
 		const data = await response.json();
 		checkDataResponse(data);
+		movieData.value = data;
 		console.log(data);
 	} catch (error) {
 		console.error(error);
@@ -45,7 +49,7 @@ const checkDataResponse = (data) => {
 
 <style scoped lang="postcss">
 main {
-	@apply w-full max-w-lg mx-auto p-4;
+	@apply w-full max-w-5xl mx-auto p-4;
 
 	p {
 		@apply text-center;

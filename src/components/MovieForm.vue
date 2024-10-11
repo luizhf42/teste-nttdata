@@ -16,7 +16,7 @@ const movieTitle = ref("");
 
 <style scoped lang="postcss">
 form {
-	@apply flex flex-col mx-auto;
+	@apply flex flex-col mx-auto max-w-lg;
 
 	label {
 		@apply font-bold;
