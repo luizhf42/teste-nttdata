@@ -4,7 +4,8 @@
 		<p>Search for any movie easily!</p>
 		<MovieForm @submit-movie="getMovie" />
 		<p v-if="loading">loading</p>
-		<Movie v-if="movieData" :movieData="movieData" />
+		<Movie v-if="movieData && !error" :movieData="movieData" />
+		<ErrorMessage v-if="error" />
 	</main>
 </template>
 
@@ -13,6 +14,7 @@ import { ref } from "vue";
 import Header from "@/components/Header.vue";
 import MovieForm from "@/components/MovieForm.vue";
 import Movie from "@/components/Movie.vue";
+import ErrorMessage from "@/components/ErrorMessage.vue";
 
 const loading = ref(false);
 const params = new URLSearchParams({
@@ -21,20 +23,23 @@ const params = new URLSearchParams({
 });
 
 const movieData = ref();
+const error = ref(false);
 
 const getMovie = async (movieTitle) => {
 	params.set("t", movieTitle);
 	loading.value = true;
+
 	try {
 		const response = await fetch(
 			`https://www.omdbapi.com/?${params.toString()}`
 		);
 		const data = await response.json();
 		checkDataResponse(data);
+		error.value = false;
 		movieData.value = data;
-		console.log(data);
-	} catch (error) {
-		console.error(error);
+	} catch (e) {
+		error.value = true;
+		console.error(e);
 	} finally {
 		loading.value = false;
 	}
@@ -52,7 +57,7 @@ main {
 	@apply w-full max-w-5xl mx-auto p-4;
 
 	p {
-		@apply text-center;
+		@apply text-center mb-2;
 	}
 }
 </style>
