@@ -9,6 +9,7 @@ export default {
 			},
 			colors: {
 				"primary-gray": "#111111",
+				"favorite-button": "#ff7c93",
 			},
 			fontFamily: {
 				sans: ["Poppins", "sans-serif"],

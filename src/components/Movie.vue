@@ -10,13 +10,19 @@
 			<p class="actors"><span>Actors:</span> {{ movieData.Actors }}</p>
 			<p class="plot">{{ movieData.Plot }}</p>
 
-			<div class="rating-wrapper"><img src="@/assets/star.svg" alt=""> <span>{{ movieData.imdbRating }}</span> / 10</div>
+			<div class="rating-wrapper">
+				<img src="@/assets/star.svg" alt="" />
+				<span>{{ movieData.imdbRating }}</span> / 10
+			</div>
+			<FavoriteButton :movieId="movieData.imdbID" />
 		</div>
 		<img class="poster" :src="movieData.Poster" alt="" />
 	</section>
 </template>
 
 <script setup>
+import FavoriteButton from "@/components/FavoriteButton.vue";
+
 const { movieData } = defineProps({
 	movieData: Object,
 });
@@ -57,7 +63,7 @@ section {
 		}
 
 		.rating-wrapper {
-			@apply flex items-center gap-1;
+			@apply flex items-center gap-1 mb-3;
 
 			img {
 				@apply h-6 aspect-square;
