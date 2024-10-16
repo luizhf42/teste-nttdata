@@ -24,7 +24,7 @@ const isFavorite = () => {
 	}
 };
 
-const isChecked = ref(isFavorite()); // fazer valor atualizar a cada filme diferente pesquisado
+const isChecked = ref(isFavorite());
 watch(movieId, () => {
 	isChecked.value = isFavorite();
 });
